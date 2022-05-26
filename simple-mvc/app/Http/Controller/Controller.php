@@ -5,8 +5,7 @@
  use App\Core\ViewRender;
 
 
-
- class Controller
+ class Controller 
  {
 
       private $view;
@@ -20,7 +19,7 @@
 
       }
 
-      public function loadData($data)
+      public function load($data)
       {
               foreach($data as $key => $value):
 

@@ -6,7 +6,6 @@ use App\Core\ViewRender;
 
 class App
 {
-
     public $router;
     public $request;
     public $response;
