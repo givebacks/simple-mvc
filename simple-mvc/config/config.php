@@ -5,7 +5,7 @@
 
 /* SITE LOCATION */
 
-$site_location = "";
+$site_location = "simple-mvc/";
 
 /* DATE (Y-m-d H:i:s) */
 
@@ -18,7 +18,7 @@ define("DIR_ROOT", $site_location);
 
 /* URL PREFIX (http, https) */
 
-define("URL_PREFIX", "https://");
+define("URL_PREFIX", "http://");
 
 /* DIRPAGE */
 
