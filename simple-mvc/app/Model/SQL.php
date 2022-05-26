@@ -10,21 +10,24 @@ class SQL
 
   private $dbh;
 
+  public $error = [];
+
    # Create Dbh instance
 
-   public function __construct($obj){
-
+   public function __construct($obj = NULL){
 
               $this->dbh = $obj;
-
 
     } # Create Dbh instance
 
 
 
+    public function error(){
+          return $this->error[0];
 
+    }
 
-            # select, insert, update, delete
+     # select, insert, update, delete
 
 
 
@@ -38,9 +41,8 @@ class SQL
 
                               if(!$stmt->execute($data)) {
 
-                                    //print_r($stmt->errorInfo());
+                                    array_push($this->error, $stmt->errorInfo());
                                     return false;
-
                               }
 
                         return $this->dbh->lastInsertId() ?? false;
@@ -58,7 +60,7 @@ class SQL
 
                               if(!$stmt->execute($data)) {
 
-                                    //print_r($stmt->errorInfo());
+                                    array_push($this->error, $stmt->errorInfo());
                                     return false;
 
                               }
@@ -76,7 +78,7 @@ class SQL
 
                               if(!$stmt->execute($data)) {
 
-                                    //print_r($stmt->errorInfo());
+                                    array_push($this->error, $stmt->errorInfo());
                                     return false;
 
                               }
@@ -95,8 +97,8 @@ class SQL
 
                             if(!$stmt->execute($data)) {
 
-                                  print_r($stmt->errorInfo());
-                                  return false;
+                              array_push($this->error, $stmt->errorInfo());
+                              return false;
 
                             }
 
@@ -118,7 +120,7 @@ class SQL
 
                               if(!$stmt->execute($data)) {
 
-                                    //print_r($stmt->errorInfo());
+                                    array_push($this->error, $stmt->errorInfo());
                                     return false;
 
                               }
@@ -137,8 +139,8 @@ class SQL
 
                             if(!$stmt->execute($data)) {
 
-                                  //print_r($stmt->errorInfo());
-                                  return false;
+                                    array_push($this->error, $stmt->errorInfo());
+                                    return false;
 
                             }
 
