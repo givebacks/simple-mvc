@@ -1,11 +1,11 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
 /* SITE LOCATION */
 
-$site_location = "simple-mvc/";
+$site_location = "";
 
 /* DATE (Y-m-d H:i:s) */
 
@@ -18,7 +18,7 @@ define("DIR_ROOT", $site_location);
 
 /* URL PREFIX (http, https) */
 
-define("URL_PREFIX", "http://");
+define("URL_PREFIX", "https://");
 
 /* DIRPAGE */
 

@@ -3,6 +3,8 @@
 
 namespace App\Model;
 
+use App\Model\SQL;
+
 
 class Dbh
 {

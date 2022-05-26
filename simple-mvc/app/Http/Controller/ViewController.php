@@ -13,7 +13,8 @@
           "date"         => NOW,
           "title"       => 'Simple MVC – PHP Framework (Home)',
           "description" => 'This is a Simple MVC framework for PHP developers',
-          "keywords"    => 'simple mvc framework'
+          "keywords"    => 'simple mvc framework',
+          "snip_img"    => DIRIMG."simple-mvc.png"
         ];
         
         $this->render("home", "index", $data);   
@@ -30,7 +31,8 @@
           "date"         => NOW,
           "title"       => 'Simple MVC – PHP Framework (Privacy)',
           "description" => 'This is a Simple MVC framework for PHP developers',
-          "keywords"    => 'simple mvc framework'
+          "keywords"    => 'simple mvc framework',
+          "snip_img"    => DIRIMG."simple-mvc.png"
         ];
         
         $this->render("privacy", "index", $data);
@@ -45,7 +47,8 @@
           "date"         => NOW,
           "title"        => 'Simple MVC – PHP Framework (About)',
           "description"  => 'This is a simple mvc framework for PHP developers',
-          "keywords"     => 'simple mvc framework'
+          "keywords"     => 'simple mvc framework',
+          "snip_img"    => DIRIMG."simple-mvc.png"
         ];
         
         $this->render("about", "index", $data);
@@ -61,7 +64,8 @@
           "date"         => NOW,
           "title"       => 'Simple MVC – PHP Framework (Contact)',
           "description" => 'This is a simple mvc framework for PHP developers',
-          "keywords"    => 'simple mvc framework'
+          "keywords"    => 'simple mvc framework',
+          "snip_img"    => DIRIMG."simple-mvc.png"
 
         ];
         
