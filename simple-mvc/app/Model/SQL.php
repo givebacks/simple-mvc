@@ -61,7 +61,6 @@ class SQL
 		return $this->stmt->lastInsertId();
 	}
 
-	
 	/* 
 	
 	public function rows() returns n of affected rows on update for example
