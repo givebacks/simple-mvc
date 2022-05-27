@@ -26,7 +26,7 @@ class SQL
 	
 	public function fetch() returns the result
 
-	Ex: $this->query($stmt,$data) ? $this->fetch() : $this->error();
+	Ex: $this->query($stmt,$data) ? $this->fetch(\PDO::FETCH_OBJ) : $this->error();
 	
 	*/
 
@@ -39,7 +39,7 @@ class SQL
 	
 	public function fetchAll() returns all result as an array
 
-	Ex: $this->query($stmt,$data) ? $this->fetchAll() : $this->error();
+	Ex: $this->query($stmt,$data) ? $this->fetchAll(\PDO::FETCH_OBJ) : $this->error();
 	
 	*/
 
