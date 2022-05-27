@@ -9,7 +9,6 @@ class SQL
   	private $stmt;
   	public  $error = [];
   
-
 	/* Create Dbh instance */
 
 	public function __construct($obj = NULL)
@@ -22,22 +21,17 @@ class SQL
 		return $this->error[0];
 	}
 
-	public function select()
+	public function fetch($callback = NULL)
 	{
-		return $this->stmt->fetch();
+		return $this->stmt->fetch($callback);
 	}
 
-	public function selectAllObj()
+	public function fetchAll($callback = NULL)
 	{
-		return $this->stmt->fetchAll(\PDO::FETCH_OBJ);
+		return $this->stmt->fetchAll($callback = NULL);
 	}
 
-	public function selectObj()
-	{
-		return $this->stmt->fetch(\PDO::FETCH_OBJ);
-	}
-
-	public function lastId()
+	public function lastInsertedId()
 	{
 		return $this->stmt->lastInsertId();
 	}
@@ -60,5 +54,4 @@ class SQL
 	}
 
 
-  
 }
