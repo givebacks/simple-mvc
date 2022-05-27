@@ -28,7 +28,7 @@ class SQL
 
 	public function fetchAll($callback = NULL)
 	{
-		return $this->stmt->fetchAll($callback = NULL);
+		return $this->stmt->fetchAll($callback);
 	}
 
 	public function lastInsertedId()
