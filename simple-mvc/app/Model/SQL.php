@@ -12,7 +12,7 @@ class SQL
 
 	/* Create Dbh instance */
 
-	public function __construct($obj = NULL)
+	public function __construct(PDO $obj)
 	{
 		$this->conn = $obj;
 	} 
@@ -32,20 +32,33 @@ class SQL
 
 	public function fetch($callback = NULL)
 	{
-		return $this->stmt->fetch($callback);
+		return $this->stmt->fetch();
+	}
+
+	/* 
+	
+	public function fetchObj() returns all result as an array
+
+	Ex: $this->query($stmt,$data) ? $this->fetchObj() : $this->error();
+	
+	*/
+
+	public function fetchObj()
+	{
+		return $this->stmt->fetch(\PDO::FETCH_OBJ);
 	}
 
 	/* 
 	
 	public function fetchAll() returns all result as an array
 
-	Ex: $this->query($stmt,$data) ? $this->fetchAll(\PDO::FETCH_OBJ) : $this->error();
+	Ex: $this->query($stmt,$data) ? $this->fetchAll() : $this->error();
 	
 	*/
 
-	public function fetchAll($callback = NULL)
+	public function fetchAll()
 	{
-		return $this->stmt->fetchAll($callback);
+		return $this->stmt->fetchAll();
 	}
 
 	/* 
