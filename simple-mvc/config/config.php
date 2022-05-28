@@ -28,11 +28,11 @@ define("DIRPAGE", URL_PREFIX.$_SERVER['HTTP_HOST']."/".$site_location);
 
 if(substr($_SERVER['DOCUMENT_ROOT'],-1)=='/')
 {
-        define("DIRREQ", $_SERVER['DOCUMENT_ROOT'].$site_location);
+		define("DIRREQ", $_SERVER['DOCUMENT_ROOT'].$site_location);
 
-    }else{
+	}else{
 
-        define("DIRREQ", $_SERVER['DOCUMENT_ROOT']."/".$site_location);
+		define("DIRREQ", $_SERVER['DOCUMENT_ROOT']."/".$site_location);
 }
 
 /* PAGE_URL */

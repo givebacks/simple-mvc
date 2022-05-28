@@ -5,118 +5,117 @@ namespace App\Core;
 
 class Request
 {
-      public $view;
 
-      public function __construct($obj = NULL){
-         
-            $this->view = $obj;
-      }
+	  public $view;
 
-
-      /*
-      *   Get first param of URL ( set route path )
-      */
-
-      public function getRoutePath()
-      {
-             $params = explode("/",filter_var(rtrim($_GET['url'],"/"), FILTER_SANITIZE_URL));
-
-             $path = $params[0] ?? NULL;
-
-             if(count($params) > 1){
-
-                  $path = $params[0].'/'.$params[1];
-             }
-
-             return DIR_ROOT.'/'.$path;
-      }
+	  public function __construct($obj = NULL)
+	  {
+			$this->view = $obj;
+	  }
 
 
+	  /*
+	  *   Get first param of URL ( set route path )
+	  */
 
-      /*
-      *   Methods post, get...
-      */
+	  public function getRoutePath()
+	  {
 
-      public function method(){
+			 $params = explode("/",filter_var(rtrim($_GET['url'],"/"), FILTER_SANITIZE_URL));
 
-            return strtolower($_SERVER['REQUEST_METHOD']);
-      }
+			 $path = $params[0] ?? NULL;
 
-      public function isGet(){
+			 if(count($params) > 1){
 
-            return $this->method() === 'get';
-      }
+				  $path = $params[0].'/'.$params[1];
+			 }
 
-      public function isPost(){
-
-            return $this->method() === 'post';
-      }
+			 return DIR_ROOT.'/'.$path;
+	  }
 
 
 
-      /*
-      *   Check URL params is exist
-      */
+	  /*
+	  *   Methods post, get...
+	  */
 
-      public function getUrlParams()
-      {
+	  public function method()
+	  {
+			return strtolower($_SERVER['REQUEST_METHOD']);
+	  }
 
-              $params = explode("/",filter_var(rtrim($_GET['url'],"/"), FILTER_SANITIZE_URL));
+	  public function isGet()
+	  {
+			return $this->method() === 'get';
+	  }
 
-              $countParams = count($params);
-
-                if($countParams > 2)
-                {
-      
-                  $this->params = [];
-
-                      foreach($params as $key => $value){
-
-                        // if key > 1 it means 3 or more params because key starts from 0
-
-                            if($key > 1){
-                                $this->params += [$key => $value];
-                            }
-                      }
-
-                  return $this->params;
-
-                  } # end if
-
-      }
+	  public function isPost()
+	  {
+			return $this->method() === 'post';
+	  }
 
 
-      /*
-      *   Incomming Data from $_POST $_GET methods
-      */
 
-      public function incomingData()
-      {
+	  /*
+	  *   Check URL params is exist
+	  */
 
-              $data = [];
+	  public function getUrlParams()
+	  {
 
-              if($this->method() == 'get'){
+			  $params = explode("/",filter_var(rtrim($_GET['url'],"/"), FILTER_SANITIZE_URL));
 
-                  foreach($_GET as $key => $value){
+			  $countParams = count($params);
 
-                    $data[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+				if($countParams > 2)
+				{
+	  
+				  $this->params = [];
 
-                  }
-              }
+					  foreach($params as $key => $value){
 
-              if($this->method() == 'post'){
+						// if key > 1 it means 3 or more params because key starts from 0
 
-                  foreach($_POST as $key => $value){
+							if($key > 1){
+								$this->params += [$key => $value];
+							}
+					  }
 
-                    $data[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+				  return $this->params;
 
-                  }
-              }
+				  } 
+	  }
 
 
-              return $data;
+	  /*
+	  *   Incomming Data from $_POST $_GET methods
+	  */
 
-      }
+	  public function incomingData()
+	  {
+
+			  $data = [];
+
+			  if($this->method() == 'get'){
+
+				  foreach($_GET as $key => $value){
+
+					$data[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+
+				  }
+			  }
+
+			  if($this->method() == 'post'){
+
+				  foreach($_POST as $key => $value){
+
+					$data[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+
+				  }
+			  }
+
+			  return $data;
+	  }
 
 
 

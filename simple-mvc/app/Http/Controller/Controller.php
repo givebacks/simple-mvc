@@ -8,35 +8,35 @@
  class Controller 
  {
 
-      private $view;
+	  private $view;
 
-      public function render($dir, $view, $data = [])
-      {
+	  public function render($dir, $view, $data = [])
+	  {
 
-         if($this->view === NULL){ $this->view = new ViewRender; }
-         
-         return $this->view->renderView($dir, $view, $data);
+		 if($this->view === NULL){ $this->view = new ViewRender; }
+		 
+		 return $this->view->renderView($dir, $view, $data);
 
-      }
+	  }
 
-      public function load($data)
-      {
-              foreach($data as $key => $value):
+	  public function load($data)
+	  {
+			  foreach($data as $key => $value):
 
-                  ///  firstname, lastname...
-                    if(property_exists($this, $key)):
+				  ///  firstname, lastname...
+					if(property_exists($this, $key)):
 
-                        $this->{$key} = $value;
+						$this->{$key} = $value;
 
-                    endif;
+					endif;
 
-              endforeach;
+			  endforeach;
 
-      } // end method
+	  } // end method
 
 
 
-     
+	 
 
 
  }

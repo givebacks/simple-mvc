@@ -4,7 +4,6 @@ require_once "../config/config.php";
 require_once "../vendor/autoload.php";
 
 
-
 use App\Core\App;
 use App\Http\Controller\ViewController;
 use App\Http\Controller\AuthController;
