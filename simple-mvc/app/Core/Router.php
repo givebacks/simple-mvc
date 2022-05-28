@@ -70,9 +70,10 @@ class Router
 
 				  $data = [
 					"date"        => NOW,
-					"title"       => "404",
-					"description" => 'This is a simple mvc framework for PHP',
-					"keywords"    => 'simple mvc framework'
+					"title"       => 'Simple MVC – PHP Framework (404)',
+					"description" => 'This is a simple mvc framework for PHP developers',
+					"keywords"    => 'simple mvc framework',
+					"snip_img"    => DIRIMG."simple-mvc.png"
 				  ];
 				
 				  return $this->request->view->renderView("errorView", "index", $data);
