@@ -26,11 +26,11 @@ class SQL
 	
 	public function fetch() returns the result
 
-	Ex: $this->query($stmt,$data) ? $this->fetch(\PDO::FETCH_OBJ) : $this->error();
+	Ex: $this->query($stmt,$data) ? $this->fetch() : $this->error();
 	
 	*/
 
-	public function fetch($callback = NULL)
+	public function fetch()
 	{
 		return $this->stmt->fetch();
 	}
