@@ -69,7 +69,7 @@ class SQL
 	
 	*/
 
-	public function lastInsertedId()
+	public function lastInsertId()
 	{
 		return $this->stmt->lastInsertId();
 	}
