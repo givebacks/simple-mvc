@@ -34,10 +34,10 @@ class Request
 	  }
 
 
-
 	  /*
 	  *   Methods post, get...
 	  */
+
 
 	  public function method()
 	  {
@@ -74,7 +74,7 @@ class Request
 
 					  foreach($params as $key => $value){
 
-						// if key > 1 it means 3 or more params because key starts from 0
+						    // if key > 1 it means 3 or more params because the key starts from 0
 
 							if($key > 1){
 								$this->params += [$key => $value];

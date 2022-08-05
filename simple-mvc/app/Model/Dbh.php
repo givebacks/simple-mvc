@@ -1,23 +1,19 @@
 <?php
 
-
 namespace App\Model;
-
 use App\Model\SQL;
 
 
 class Dbh
 {
 
-
     private $pdo;
 
-    public function __construct() {}
+    public function __construct(){}
 
-    public function getDB()
+    public function getPDO()
     {
-
-                # set instance (if not yet)
+                /* Set instance (if not set) */
 
                 if ($this->pdo === NULL) {
 
@@ -27,17 +23,23 @@ class Dbh
 
                         $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
+                        /* Set DB collation */
+
                         $this->pdo->exec("set names utf8mb4");
 
-                } # set instance
+                } 
+
+                /* Return instance */
 
                 return $this->pdo;
+    } 
 
-    } # getPDO
 
+    /* Connect */
 
-    public function conn(){
-       return new SQL($this->getDB());
+    public function conn()
+    {
+        return new SQL($this->getPDO());
     }
 
 

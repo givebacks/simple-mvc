@@ -5,20 +5,20 @@ namespace App\Model;
 class LoadData
 {
 
+	
 public function load($data)
 {
-					foreach($data as $key => $value):
+		foreach($data as $key => $value){
 
-							///  firstname, lastname...
-								if(property_exists($this, $key)):
+				/*  firstname, lastname... */
+				if(property_exists($this, $key)){
 
-										$this->{$key} = $value;
+					$this->{$key} = $value;
 
-								endif;
+				} 
+		}
 
-					endforeach;
-
-	} 
+} 
 
 
 }

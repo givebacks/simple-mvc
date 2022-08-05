@@ -47,7 +47,7 @@ class Router
 		  */
 
 		  $path   = $this->request->getRoutePath();
-		  $method = $this->request->method();
+		  $method = $this->request->method(); // $_GET, $_POST ...
 		  $params = $this->request->getUrlParams();
 
 		  /*
@@ -81,14 +81,14 @@ class Router
 		  }
 
 
-		  if(is_string($callback)){
-			  
-				return $this->renderView($callbacks,$params);
-		  }
+		//   if(is_string($callback)){
+		// 		return $this->request->view->renderView($callback,"index", $data = NULL);
+		//   }
 
 
 		  if(is_array($callback)){
 
+				/* instantiate ViewController Class */
 				$callback[0] = new $callback[0]();
 		  }
 
