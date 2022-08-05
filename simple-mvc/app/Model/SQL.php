@@ -32,7 +32,7 @@ class SQL
 
 	public function fetch()
 	{
-		return $this->stmt->fetch();
+		return $this->conn->fetch();
 	}
 
 	/* 
@@ -45,7 +45,7 @@ class SQL
 
 	public function fetchObj()
 	{
-		return $this->stmt->fetch(\PDO::FETCH_OBJ);
+		return $this->conn->fetch(\PDO::FETCH_OBJ);
 	}
 
 	/* 
@@ -58,7 +58,7 @@ class SQL
 
 	public function fetchAll()
 	{
-		return $this->stmt->fetchAll();
+		return $this->conn->fetchAll();
 	}
 
 	/* 
@@ -71,7 +71,7 @@ class SQL
 
 	public function lastInsertId()
 	{
-		return $this->stmt->lastInsertId();
+		return $this->conn->lastInsertId();
 	}
 
 	/* 
@@ -84,7 +84,7 @@ class SQL
 
 	public function rows()
 	{
-		return $this->stmt->rowCount();
+		return $this->conn->rowCount();
 	}
 
 	/* Query */
