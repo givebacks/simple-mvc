@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Model;
+use App\Model\Dbh;
 
 class SQL
 {
@@ -12,91 +13,72 @@ class SQL
 
 	/* Create Dbh instance */
 
-	public function __construct(PDO $obj)
+	public function __construct()
 	{
-		$this->conn = $obj;
+		$dbh = new Dbh;
+		$this->conn = $dbh->conn();
 	} 
 
 	public function error()
 	{
-		return $this->error[0];
-	}
-
-	/* 
-	
-	public function fetch() returns the result
-
-	Ex: $this->query($stmt,$data) ? $this->fetch() : $this->error();
-	
-	*/
-
-	public function fetch()
-	{
-		return $this->conn->fetch();
+		return $this->error[0] ?? NULL;
 	}
 
 	/* 
 	
 	public function fetchObj() returns all result as an array
-
-	Ex: $this->query($stmt,$data) ? $this->fetchObj() : $this->error();
 	
 	*/
 
-	public function fetchObj()
+	public function fetchObj($stmt,$data)
 	{
-		return $this->conn->fetch(\PDO::FETCH_OBJ);
+		return $this->query($stmt,$data) ? $this->stmt->fetch(\PDO::FETCH_OBJ) : NULL;
 	}
 
 	/* 
 	
 	public function fetchAll() returns all result as an array
-
-	Ex: $this->query($stmt,$data) ? $this->fetchAll() : $this->error();
 	
 	*/
 
-	public function fetchAll()
+	public function fetchAll($stmt,$data = NULL)
 	{
-		return $this->conn->fetchAll();
+		return $this->query($stmt,$data) ? $this->stmt->fetchAll() : NULL;
 	}
 
 	/* 
 	
 	public function lastInsertedId() returns last inserted data ID 
-
-	Ex: $this->query($stmt,$data) ? $this->lastInsertedId() : $this->error();
 	
 	*/
 
-	public function lastInsertId()
+	public function lastInsertId($stmt,$data)
 	{
-		return $this->conn->lastInsertId();
+		return $this->query($stmt,$data) ? $this->conn->lastInsertId() : NULL;
 	}
 
 	/* 
 	
 	public function rows() returns n of affected rows on update for example
 
-	Ex: $this->query($stmt,$data) ? $this->rows() : $this->error();
-	
 	*/
 
-	public function rows()
+	public function rows($stmt,$data)
 	{
-		return $this->conn->rowCount();
+		return $this->query($stmt,$data) ? $this->stmt->rowCount() : NULL;
 	}
 
 	/* Query */
 
-	public function query($stmt, $data)
+	public function query($stmt, $data = NULL)
 	{
 			$this->stmt = $this->conn->prepare($stmt);
 					/* execute prepared statement */
 					if(!$this->stmt->execute($data)) {
 							array_push($this->error, $this->stmt->errorInfo());
 							return false;
-					}		   
+					}		
+					return true;
 	}
 
 
